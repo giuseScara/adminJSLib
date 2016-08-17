@@ -7,6 +7,7 @@ var size = require('gulp-size');
 var csso = require('gulp-csso');
 var autoprefixer = require('gulp-autoprefixer');
 
+
 gulp.task('default', ['images','scripts', 'styles'], function() {
   gulp.watch('dev/scripts/**/*.js', ['scripts']);
   gulp.watch('dev/scripts/**/*.css', ['styles']);
