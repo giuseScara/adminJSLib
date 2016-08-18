@@ -1,3 +1,16 @@
+.div-visjs img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.div-visjs {
+  padding: 0;
+  cursor: pointer;
+}
+.footer {
+  position: relative;
+  clear:both;
+  margin-top:100%;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #f7f7f7;

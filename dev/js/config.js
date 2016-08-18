@@ -7,17 +7,24 @@ require.config({
   },
   shim: {
     MainAppModule: {
-      deps: ['angular','css!style/style','css!style/buttons','bootstrap']
+      deps: ['angular_route','css!style/lib/bootstrap.min','css!style/style','css!style/buttons','css!style/lib/font-awesome.min','bootstrap']
     },
     bootstrap: {
-      deps: ['jquery','css!style/lib/bootstrap']
+      deps: ['jquery','css!style/lib/bootstrap.min']
     },
+    angular_route: {
+      deps: ['angular']
+    }
   },
   paths: {
     MainAppModule: 'app',
     style: '../css',
     angular: [
       'lib/angular.min' //load this
+    ],
+    angular_route: [
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min',
+      'lib/angular-route.min'
     ],
     bootstrap: [
       'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min',

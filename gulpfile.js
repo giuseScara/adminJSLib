@@ -10,7 +10,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var bower = require("gulp-bower");
 var clean = require('gulp-clean');
 
-gulp.task('default', ['bower','libJS','libCSS'], function() {
+gulp.task('default', ['bower','libJS','libCSS', 'libFonts'], function() {
   //gulp.watch('dev/scripts/**/*.js', ['scripts']);
   //gulp.watch('dev/scripts/**/*.css', ['styles']);
 });
@@ -21,7 +21,7 @@ gulp.task('bower', function() {
 
 
 gulp.task('clean', function () {
-    return gulp.src(['dev/js/lib/*', 'dev/css/lib/*'], {read: false})
+    return gulp.src(['dev/js/lib/*', 'dev/css/lib/*', 'dev/css/fonts/*'], {read: false})
         .pipe(clean());
 });
 
@@ -42,9 +42,18 @@ gulp.task('libJS', function () {
 gulp.task('libCSS', function () {
   var libCSS = [
     'bower_components/vis/dist/vis.min.css',
-    'bower_components/bootstrap/dist/css/bootstrap.css'];
+    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    'bower_components/components-font-awesome/css/font-awesome.min.css'];
    return gulp.src(libCSS)
       .pipe(gulp.dest('dev/css/lib'));
+});
+
+gulp.task('libFonts', function () {
+  var libFonts = [
+    'bower_components/bootstrap/dist/fonts/*',
+    'bower_components/components-font-awesome/fonts/*'];
+   return gulp.src(libFonts)
+      .pipe(gulp.dest('dev/css/fonts'));
 });
 
 gulp.task('concatLib', function() {
