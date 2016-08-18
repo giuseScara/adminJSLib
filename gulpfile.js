@@ -6,10 +6,54 @@ var concat = require('gulp-concat');
 var size = require('gulp-size');
 var csso = require('gulp-csso');
 var autoprefixer = require('gulp-autoprefixer');
+var bower = require("gulp-bower");
+var clean = require('gulp-clean');
 
-gulp.task('default', ['images','scripts', 'styles'], function() {
-  gulp.watch('dev/scripts/**/*.js', ['scripts']);
-  gulp.watch('dev/scripts/**/*.css', ['styles']);
+gulp.task('default', ['bower','libJS','libCSS'], function() {
+  //gulp.watch('dev/scripts/**/*.js', ['scripts']);
+  //gulp.watch('dev/scripts/**/*.css', ['styles']);
+});
+
+gulp.task('bower', function() {
+  return bower();
+});
+
+
+gulp.task('clean', function () {
+    return gulp.src(['dev/js/lib/*', 'dev/css/lib/*'], {read: false})
+        .pipe(clean());
+});
+
+gulp.task('libJS', function () {
+  var libJS = [
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-route/angular-route.min.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/jquery-ui/jquery-ui.min.js',
+    'bower_components/requirejs/require.js',
+    'bower_components/bootstrap/dist/js/bootstrap.min.js',
+    'bower_components/require-css/css.min.js',
+    'bower_components/vis/dist/vis.min.js'];
+   return gulp.src(libJS)
+      .pipe(gulp.dest('dev/js/lib'));
+});
+
+gulp.task('libCSS', function () {
+  var libCSS = [
+    'bower_components/vis/dist/vis.min.css',
+    'bower_components/bootstrap/dist/css/bootstrap.min.css'];
+   return gulp.src(libCSS)
+      .pipe(gulp.dest('dev/css/lib'));
+});
+
+gulp.task('concatLib', function() {
+  gulp.src('dev/js/lib/*.js')
+  .pipe(concat('lib.js'))
+  .pipe(gulp.dest('dev/js'));
+
+  gulp.src('dev/css/lib/*.css')
+  .pipe(concat('lib.css'))
+  .pipe(gulp.dest('dev/css'));
 });
 
 gulp.task('scripts', function() {
