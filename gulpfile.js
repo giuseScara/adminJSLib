@@ -41,7 +41,7 @@ gulp.task('libJS', function () {
 gulp.task('libCSS', function () {
   var libCSS = [
     'bower_components/vis/dist/vis.min.css',
-    'bower_components/bootstrap/dist/css/bootstrap.min.css'];
+    'bower_components/bootstrap/dist/css/bootstrap.css'];
    return gulp.src(libCSS)
       .pipe(gulp.dest('dev/css/lib'));
 });

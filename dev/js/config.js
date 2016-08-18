@@ -10,7 +10,7 @@ require.config({
       deps: ['angular','css!style/style','css!style/buttons','bootstrap']
     },
     bootstrap: {
-      deps: ['jquery','css!style/lib/bootstrap.min']
+      deps: ['jquery','css!style/lib/bootstrap']
     },
   },
   paths: {
