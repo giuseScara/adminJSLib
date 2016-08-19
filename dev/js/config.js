@@ -14,11 +14,15 @@ require.config({
     },
     angular_route: {
       deps: ['angular']
+    },
+    visjs: {
+      deps: ['css!style/lib/vis.min']
     }
   },
   paths: {
     MainAppModule: 'app',
-    style: '../css',
+    style: '../css/',
+    view_style: '../view/',
     angular: [
       'lib/angular.min' //load this
     ],
@@ -34,6 +38,10 @@ require.config({
       'https://code.jquery.com/jquery-2.2.3.min',
       'lib/jquery.min'
     ],
+    vis: [
+      'https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min',
+      'lib/vis.min'
+    ]
   }
 });
 

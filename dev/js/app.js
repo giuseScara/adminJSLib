@@ -32,15 +32,15 @@ define([], function() {
 
         $routeProvider
             .when("/dashboard", {
-                templateUrl: "view/dashboard/dashboard.html"
-                    //controller: "OsintController as osintCtrl",
-                    //resolve: resolveController(["../view/osint/osintController"])
+                templateUrl: "view/dashboard/dashboard.html",
+                controller: "DashboardController as dbCtrl",
+                resolve: resolveController(["../view/dashboard/dashboard-controller"])
             })
-            /*.when("/source/:name/:id/:categoryId?/:ruleId?/:ruleVerId?", {
-                templateUrl: "view/source/sourceView.html",
-                controller: "SourceController as sourceCtrl",
-                resolve: resolveController(["../view/source/sourceController"])
-            })*/
+            .when("/visjs", {
+                templateUrl: "view/visjs/visjs.html",
+                controller: "VisjsController as vsCtrl",
+                resolve: resolveController(["../view/visjs/visjs-controller"])
+            })
             .otherwise({
                 redirectTo: '/dashboard'
             });
