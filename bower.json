@@ -13,11 +13,6 @@
   "homepage": "https://www.linkedin.com/in/giuseppe-scaramuzzino-b1453b74?trk=nav_responsive_tab_profile",
   "dependencies": {
     "bootstrap": "^3.3.7",                                     
-    
-    
-    
-    
-    
     "vis": "^4.16.1",
     "angular": "^1.5.8",
     "gulp": "^3.9.1",
